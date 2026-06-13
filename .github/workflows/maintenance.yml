@@ -1,0 +1,30 @@
+name: Repository maintenance
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  maintenance:
+    uses: Enveloppe/wiki/.github/workflows/maintenance.yml@main
+    with:
+      BRANCH: main
+      CLEAN: true
+      UPDATE_REQUIREMENTS: true
+      OPTIMIZE_IMAGES: true
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+      AUTHOR_EMAIL: ${{ secrets.author_email || 'github-actions[bot]@users.noreply.github.com' }}
+      AUTHOR_NAME: ${{ secrets.author_name || 'github-actions[bot]' }}
+  deploy:
+    needs: maintenance
+    if: ${{ success() }}
+    uses: Enveloppe/wiki/.github/workflows/deploy.yml@main
+    with:
+      FETCH_SUBMODULE: false #change this if you use submodules
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
