@@ -67,9 +67,9 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v6
       - name: Install uv
-        uses: astral-sh/setup-uv@v8
+        uses: astral-sh/setup-uv@v8.2.0
         with:
-            enable-cache: true
+            enable-cache: auto
             cache-dependency-glob: "uv.lock"
       - name: Install python
         run: uv python install
@@ -109,7 +109,7 @@ jobs:
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
       - name: Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@v8.1.1
         with:
           commit-message: Generating template
           title: "First commit -- Generate template"
