@@ -9,6 +9,15 @@ on:
       - 'docs/**'
   workflow_dispatch:
   workflow_call:
+    inputs:
+      FETCH_SUBMODULE:
+        description: "Fetch submodule for the docs"
+        required: false
+        default: false
+        type: boolean
+    secrets:
+      GH_PAT:
+        required: false
 
 permissions:
   contents: read
