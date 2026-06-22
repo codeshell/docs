@@ -18,5 +18,5 @@ inline-quotes = "double"
 
 [dependency-groups]
 dev = [
-    "zensical>=0.0.45",
+    "zensical>=0.0.46",
 ]
