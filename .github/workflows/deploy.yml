@@ -8,14 +8,6 @@ on:
       - 'includes/**'
       - 'docs' # contains submodule pointer
       - 'docs/**'
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-    paths: 
-      - 'docs' # contains submodule pointer
-      - 'docs/**'
   workflow_dispatch:
   workflow_call:
     inputs:
@@ -34,7 +26,6 @@ permissions:
   id-token: write
 jobs:
   deploy:
-    if: ${{ github.event_name != 'pull_request' || github.event.pull_request.merged == true }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
