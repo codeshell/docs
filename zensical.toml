@@ -1,5 +1,5 @@
 [project]
-site_name = "codeshell | TMW"
+site_name = "codeshell · TMW"
 site_description = "Guides, scripts, snippets and discussions on dev topics."
 site_url = "https://codeshell.on.state.ovh"
 site_author = "codeshell"
@@ -7,24 +7,25 @@ copyright = """
 Copyright &copy; 2026 TMW
 """
 extra_css = [
-    "_static/css/admonition.css",
-    "_static/css/custom_attributes.css",
-    "_static/css/customization.css",
+    "_static/stylesheets/admonition.css",
+    "_static/stylesheets/custom_attributes.css",
+    "_static/stylesheets/customization.css",
 ]
 extra_javascript = [
-    "_static/js/mathjax.js",
-    "_static/js/snippets.js",
+    "_static/javascripts/mathjax.js",
+    "_static/javascripts/snippets.js",
 ]
+repo_url = "https://github.com/codeshell/codeshell.on.state.ovh"
 
 [project.theme]
 #custom_dir = "overrides"
-#logo = "_assets/meta/logo"
-favicon = "_assets/meta/favicons.png"
+#logo = "_static/images/logo.png"
+favicon = "_static/images/favicons.png"
 language = "en"
 features = [
     "announce.dismiss",
-    "content.action.edit",
-    "content.action.view",
+    #"content.action.edit", # source files not public
+    #"content.action.view", # source files not public
     "content.code.annotate",
     "content.code.copy",
     "content.code.select",
@@ -41,7 +42,7 @@ features = [
     "navigation.path",
     "navigation.prune",
     "navigation.sections",
-    #"navigation.tabs",
+    "navigation.tabs",
     #"navigation.tabs.sticky",
     "navigation.top",
     "navigation.tracking",
@@ -81,6 +82,12 @@ link = "https://github.com/codeshell"
 HTML5 = "html"
 JavaScript = "js"
 CSS = "cs"
+
+# [project.extra]
+# alternate = [
+#     { name = "English", link = "/en/", lang = "en" },
+#     { name = "Deutsch", link = "/de/", lang = "de" }
+# ]
 
 [project.markdown_extensions.abbr]
 [project.markdown_extensions.admonition]
