@@ -35,20 +35,20 @@ features = [
     # "header.autohide",
     # "navigation.expand",
     "navigation.footer",
-    "navigation.indexes",
+    "navigation.indexes",          # section groups can have content via index.md files
     "navigation.instant",
     "navigation.instant.prefetch",
     #"navigation.instant.progress",
-    "navigation.path",
-    "navigation.prune",
-    "navigation.sections",
+    "navigation.path",     # breadcrumbs
+    "navigation.prune",    # only the visible navigation items are included in the rendered HTML
+    "navigation.sections", # when combined with tabs, section groups are level 2 folders, else level 1
     "navigation.tabs",
     #"navigation.tabs.sticky",
-    "navigation.top",
+    "navigation.top",      # back-to-top button appears when scrolling up
     "navigation.tracking",
     "search.highlight",
-    "toc.follow",
-    #"toc.integrate",
+    "toc.follow",          # sidebar is automatically scrolled so that the active anchor is always visible
+    #"toc.integrate",                   # page toc is moved from (right) sidebar into navigation (left)
 ]
 
 [project.theme.icon]
@@ -77,6 +77,17 @@ toggle.name = "Switch to light mode"
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
 link = "https://github.com/codeshell"
+name = "GitHub"
+
+[[project.extra.social]]
+icon = "simple/matrix"
+link = "https://matrix.to/#/#codeshell:tchncs.de"
+name = "Matrix"
+
+[[project.extra.social]]
+icon = "fontawesome/brands/discord"
+link = "https://discord.gg/MNWw5hZsux"
+name = "Discord"
 
 [project.extra.tags]
 HTML5 = "html"
@@ -115,9 +126,7 @@ pygments_lang_class = true
 [project.markdown_extensions.pymdownx.mark]
 [project.markdown_extensions.pymdownx.smartsymbols]
 [project.markdown_extensions.pymdownx.snippets]
-auto_append = [
-    "includes/abbreviations.md",
-]
+auto_append = ["includes/abbreviations.md"]
 [project.markdown_extensions.pymdownx.superfences]
 custom_fences = [
     { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
@@ -130,3 +139,11 @@ combine_header_slug = true
 [project.markdown_extensions.pymdownx.tasklist]
 custom_checkbox = true
 [project.markdown_extensions.pymdownx.tilde]
+[[project.markdown_extensions.zensical.extensions.preview.configurations]] # array!
+targets.include = [
+    "setup/extensions/*",
+    "blog/*",
+    "guides/*",
+    "topics/*",
+    "index.md",
+]
