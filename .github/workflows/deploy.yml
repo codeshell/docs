@@ -48,9 +48,7 @@ jobs:
       - run: uv python install 3.14
       - run: uv sync
       - name: Fetching custom Zensical build
-        run: |
-          curl -L ${{ env.customZensical }} -o /tmp/zensical.whl
-          uv pip install /tmp/zensical.whl
+        run: uv pip install ${{ env.customZensical }}
         id: fetch-custom
         if:  ${{ env.customZensical != '' }}
       - run: uv run --no-sync zensical build --clean
