@@ -3,6 +3,9 @@ name = "codeshell-docs"
 version = "0.0.0"
 description = "Guides, scripts, snippets and discussions on dev topics."
 readme = "README.md"
+authors = [
+    { name = "codeshell", email = "git.running939@passinbox.com" }
+]
 requires-python = ">=3.13"
 dependencies = [
     "babel",
@@ -15,6 +18,11 @@ exclude = ["tests", "docs", "build", "dist", "venv", "venv3", "venv3.6", "venv3.
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "double"
+
+[tool.uv.workspace]
+members = [
+    "python/tmw-macros",
+]
 
 [dependency-groups]
 dev = [
