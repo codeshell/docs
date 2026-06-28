@@ -24,6 +24,10 @@ permissions:
   contents: read
   pages: write
   id-token: write
+
+env:
+  customZensical: ${{ vars.ZENSICAL_LINUX_WHL }}
+
 jobs:
   deploy:
     environment:
@@ -43,7 +47,16 @@ jobs:
             cache-dependency-glob: "uv.lock"
       - run: uv python install 3.14
       - run: uv sync
+      - name: Fetching custom Zensical build
+        run: |
+          curl -L ${{ env.customZensical }} -o /tmp/zensical.whl
+          uv pip install /tmp/zensical.whl
+        id: fetch-custom
+        if:  ${{ env.customZensical != '' }}
+      - run: uv run --no-sync zensical build --clean
+        if: ${{ steps.fetch-custom.outcome == 'success' }}
       - run: uv run zensical build --clean
+        if:  ${{ steps.fetch-custom.outcome == 'skipped' }}
       - uses: actions/upload-pages-artifact@v5
         with:
           path: site
