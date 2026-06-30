@@ -1,7 +1,4 @@
-{% extends "base.html" %}
-{% block extrahead %}
-  {% include "partials/meta.html" %}
-{% endblock %}
+{% extends "index.html" %}
 {% block content %}
   {{ super() }}
   {% include "partials/css_class.html" %}
@@ -22,8 +19,4 @@
       // console.log(error);
     }
   </script>
-{% endblock %}
-{% block announce %}
-  The underlying SSG <strong>Zensical</strong> is in early beta. "Permalinks" might change while at version 0.x –
-  Breaking changes to core features (like navigation) are still in the pipeline.
 {% endblock %}

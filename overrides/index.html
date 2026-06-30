@@ -5,3 +5,9 @@
 {% block content %}
   {{ super() }}
 {% endblock %}
+{% block announce %}
+  The underlying SSG <strong>Zensical</strong> is in early beta (version 0.x). –
+  "Permalinks" might change –
+  Breaking changes to core features (navigation, Markdown parser) are pending. –
+  This site is running a custom build <a href="https://github.com/codeshell/zensical/releases/tag/v0.0.46-patch-1">v0.0.46-patch-1</a>, fixing a critical bug in render context! that prevents templating page collections for blog / news / article lists.
+{% endblock %}

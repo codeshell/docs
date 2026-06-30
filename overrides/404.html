@@ -1,21 +1,38 @@
-{% extends "main.html" %}
+{% extends "index.html" %}
+{% block extrahead %}
+    {{ super() }}
+    <style>
+    /* don't set the background color directly on the .grid.cards as it will fill over/behind the rounded borders */
+    .grid.cards li {
+        background-color: var(--md-default-bg-color);
+    }
+
+    .md-main {
+        background-image: url("/assets/images/error_404.svg");
+        background-size: cover;
+    }
+    </style>
+{% endblock %}
 {% block content %}
-  <style>
-    .md-sidebar {
-        display: none;
-    }
-
-    .md-grid {
-        margin-left: 0 !important;
-    }
-
-    .img_404_format {
-        max-width: 200% !important;
-    }
-  </style>
-  <img src="_static/images/error_404.svg"
-       alt="Page not found."
-       width="1280"
-       height="900"
-       class="img_404_format">
+    <div class="grid cards">
+        <ul>
+            <li>
+                <div class="admonition warning">
+                    <p class="admonition-title">The site you tried to access is not available.</p>
+                    <p>Please use the search to find it in case it was moved or renamed.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="grid cards">
+        <ul>
+            <li>
+                <div class="admonition info">
+                    <p class="admonition-title">Note</p>
+                    <p><em>Here should be an embedded search with results for querying with the non existent page name, so you would not have to manually type it into the search box.</em></p>
+                    <p><em>The current implementation of Zensical Search does not allow that, yet.</em> <span class="md-tag md-tag-icon">missing_feature</span></p>
+                </div>
+            </li>
+        </ul>
+    </div>
 {% endblock %}
