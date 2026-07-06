@@ -77,9 +77,11 @@ toggle.name = "Switch to light mode"
 
 [project.plugins.search]
 enabled = true
+[project.plugins.offline]
+enabled = false
 
 [project.extra]
-comments = false
+comments = true
 
 [[project.extra.social]]
 icon = "fontawesome/brands/github"
