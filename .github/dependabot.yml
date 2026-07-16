@@ -10,6 +10,12 @@ updates:
     schedule:
       interval: "weekly"
 
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      # Check for updates to GitHub Actions every week
+      interval: "weekly"
+
 # Personal user accounts don't support updating dependency files that reference private git repositories.
   # - package-ecosystem: "gitsubmodule"
   #   directory: "/"
