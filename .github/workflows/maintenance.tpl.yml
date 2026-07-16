@@ -41,7 +41,7 @@ jobs:
     if: inputs.CLEAN
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v8.2.0
         with:
           enable-cache: auto
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     if: inputs.UPDATE_REQUIREMENTS
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v8.2.0
         with:
           enable-cache: auto
@@ -86,7 +86,7 @@ jobs:
     runs-on: ubuntu-latest
     if: inputs.OPTIMIZE_IMAGES
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: optimize
         uses: calibreapp/image-actions@main
         with:
