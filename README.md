@@ -1,3 +1,9 @@
+# TMW Docs
+
+[![Publish Documentation](https://github.com/codeshell/docs/actions/workflows/deploy.yml/badge.svg)](https://github.com/codeshell/docs/actions/workflows/deploy.yml)
+[![Check Links](https://github.com/codeshell/docs/actions/workflows/links.yml/badge.svg)](https://github.com/codeshell/docs/actions/workflows/links.yml)
+[![Maintain & Deploy](https://github.com/codeshell/docs/actions/workflows/maintenance.yml/badge.svg)](https://github.com/codeshell/docs/actions/workflows/maintenance.yml)
+
 [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
 
 This work is licensed under a

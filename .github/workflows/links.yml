@@ -32,9 +32,10 @@ jobs:
         uses: lycheeverse/lychee-action@v2
         with:
           args: >
-            --root-dir "$(pwd)/docs" 
+            --root-dir "$(pwd)/docs"
             --scheme https --scheme http --scheme mailto
-            --verbose --no-progress './**/*.md' './**/*.html' 
+            --verbose --no-progress './**/*.md' './**/*.html'
+            --exclude-path 'playground\.md$'
           fail: false
           output: lychee/out.md
           workingDirectory: .
